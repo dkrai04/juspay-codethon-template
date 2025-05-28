@@ -45,11 +45,35 @@ You’ll get your repo name (e.g., `codethon-yourname`) from the team. Run:
 
 ```bash
 git clone https://github.com/juspay-codethon/codethon-yourname.git
+cd codethon-yourname
 ```
 
 When prompted:
 - Username: your GitHub username
 - Password: paste the **PAT**
+
+---
+
+## 1.1 Git Basics: Branch, Commit, Push
+
+### A. Create and switch to a new branch
+
+```bash
+git checkout -b your-branch-name
+```
+
+### B. Stage and commit changes
+
+```bash
+git add .
+git commit -m "your meaningful commit message"
+```
+
+### C. Push your branch to GitHub
+
+```bash
+git push origin your-branch-name
+```
 
 ---
 
@@ -202,9 +226,10 @@ Explore all: https://ui.shadcn.dev/docs/components
 - [ ] Tailwind CSS configured
 - [ ] shadcn/ui components added
 - [ ] Gemini API key set in Cline
+- [ ] Branch created, changes committed and pushed to GitHub
 
 ---
 
 ## Questions?
 
-Reach out on `#codethon-support` Slack channel. Happy coding, and bring your designs to life
+Reach out on `#codethon-support` Slack channel. Happy coding, and bring your designs to life ✨
