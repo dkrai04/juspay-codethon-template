@@ -232,4 +232,4 @@ Explore all: https://ui.shadcn.dev/docs/components
 
 ## Questions?
 
-Reach out on `#codethon-support` Slack channel. Happy coding, and bring your designs to life ✨
+Reach out on `#product-design-internal` Slack channel. Happy coding, and bring your designs to life ✨
