@@ -17,6 +17,41 @@ Each participant will push their project to a **dedicated repo under**:
 
 ---
 
+## 🛠️ Git Installation (macOS)
+
+If Git is not already installed on your system, follow the steps below to install it via the command line:
+
+### Install Using Homebrew
+
+1. First, check if Homebrew is installed:
+
+```bash
+brew --version
+```
+
+2. If Homebrew is not installed, install it:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+3. Once Homebrew is installed, install Git:
+
+```bash
+brew install git
+```
+
+4. Verify the installation:
+
+```bash
+git --version
+```
+
+> You should see a version output like `git version 2.42.0` confirming it's installed successfully.
+
+If `git` is not already installed on your machine, follow these steps:
+
+
 ## 1. GitHub Setup Using PAT (Personal Access Token)
 
 ### A. Configure Git
@@ -217,16 +252,54 @@ Explore all: https://ui.shadcn.dev/docs/components
 
 ---
 
-## Final Checklist
+## Deploying Your App on Vercel
+### Deploy via Vercel CLI
 
-- [ ] Temporary admin via Kandji enabled
-- [ ] GitHub repo cloned using PAT
-- [ ] Node.js installed via Kandji
-- [ ] Vite project created
-- [ ] Tailwind CSS configured
-- [ ] shadcn/ui components added
-- [ ] Gemini API key set in Cline
-- [ ] Branch created, changes committed and pushed to GitHub
+If you prefer deploying directly from the terminal:
+
+1. Install Vercel CLI globally:
+
+```bash
+npm install -g vercel
+```
+
+2. Run the deployment command:
+
+```bash
+vercel
+```
+
+3. It will:
+   - Ask to log in (use GitHub or email)
+   - Ask for the root directory (`./`)
+   - Ask if it’s a React project → Yes
+   - Auto-detect Vite → Yes
+   - Ask if you want to override settings → No (use defaults)
+
+4. After a few seconds, your project will be live! 🚀
+
+To redeploy after making changes:
+```bash
+vercel --prod
+```
+
+
+Once you're done building your project, you can deploy it to the internet using **Vercel** (which works seamlessly with Vite, React, and Tailwind).
+
+### Deploy via Vercel Dashboard
+
+1. Go to [https://vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **“Add New → Project”**
+3. Import your repo from `juspay-codethon` org (e.g., `codethon-yourname`)
+4. Vercel will auto-detect it's a Vite + React app — click **Deploy**
+5. Done! 🎉 Your site is now live.
+
+### What it sets up:
+- Automatic deployment from the `main` or `dev` branch
+- Custom preview URLs for every PR
+- Performance-optimized static hosting
+
+> Any future push to your repo will automatically trigger a new deployment
 
 ---
 
