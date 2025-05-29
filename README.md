@@ -5,7 +5,6 @@ Welcome to the **Design Codethon**! This guide helps you build your project from
 Each participant will push their project to a **dedicated repo under**:  
 [`https://github.com/juspay-codethon`](https://github.com/juspay-codethon)
 
----
 
 ## Step 0: Enable Temporary Admin Access via Kandji
 
@@ -14,9 +13,8 @@ Each participant will push their project to a **dedicated repo under**:
 3. Click **Install** to enable admin rights
 4. Proceed with the setup steps below
 
----
 
-## 🛠️ Git Installation (macOS)
+## Git Installation (macOS)
 
 If Git is not already installed on your system, follow the steps below to install it via the command line:
 
@@ -86,7 +84,6 @@ When prompted:
 - Username: your GitHub username
 - Password: paste the **PAT**
 
----
 
 ## 1.1 Git Basics: Branch, Commit, Push
 
@@ -109,7 +106,6 @@ git commit -m "your meaningful commit message"
 git push origin your-branch-name
 ```
 
----
 
 ## 2. Install Node.js via Kandji
 
@@ -123,7 +119,6 @@ node -v
 npm -v
 ```
 
----
 
 ## 3. Create Project with Next.js
 
@@ -153,7 +148,6 @@ npm run dev
 
 Your Next.js app will be running at `http://localhost:3000`
 
----
 
 ## 4. Tailwind CSS (Already Configured!)
 
@@ -190,7 +184,6 @@ Your `src/app/globals.css` already includes:
 @tailwind utilities;
 ```
 
----
 
 ## 5. Setup shadcn/ui Components
 
@@ -217,7 +210,6 @@ npx shadcn@latest add dialog
 
 Explore all: https://ui.shadcn.dev/docs/components
 
----
 
 ## 6. Project Structure & Development Guide
 
@@ -518,7 +510,15 @@ export default function Home() {
 }
 ```
 
----
+
+## Useful Dev Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [shadcn/ui Components](https://ui.shadcn.dev/docs/components)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Lucide Icons](https://lucide.dev)
+- [Gemini AI Studio](https://aistudio.google.com/app)
+
 
 ## 7. Setup Cline + Gemini for AI-Powered Coding
 
@@ -542,17 +542,6 @@ export default function Home() {
    - **Model**: `gemini-2.0-flash-001`
 4. Save
 
----
-
-## Useful Dev Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [shadcn/ui Components](https://ui.shadcn.dev/docs/components)
-- [Tailwind CSS Docs](https://tailwindcss.com/docs)
-- [Lucide Icons](https://lucide.dev)
-- [Gemini AI Studio](https://aistudio.google.com/app)
-
----
 
 ## Deploying Your App on Vercel
 
@@ -602,7 +591,6 @@ vercel --prod
 
 > Any future push to your repo will automatically trigger a new deployment
 
----
 
 ## Questions?
 
