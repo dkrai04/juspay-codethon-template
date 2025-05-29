@@ -8,7 +8,7 @@ Each participant will push their project to a **dedicated repo under**:
 ## 📋 Table of Contents
 
 - [Step 0: Enable Temporary Admin Access via Kandji](#step-0-enable-temporary-admin-access-via-kandji)
-- [Git Installation (macOS)](#git-installation-macos)
+- [Git Installation](#git-installation-macos)
 - [1. GitHub Setup Using PAT (Personal Access Token)](#1-github-setup-using-pat-personal-access-token)
 - [1.1 Git Basics: Branch, Commit, Push](#11-git-basics-branch-commit-push)
 - [2. Install Node.js via Kandji](#2-install-nodejs-via-kandji)
@@ -29,7 +29,7 @@ Each participant will push their project to a **dedicated repo under**:
 4. Proceed with the setup steps below
 
 
-## Git Installation (macOS)
+## Git Installation
 
 If Git is not already installed on your system, follow the steps below to install it via the command line:
 
