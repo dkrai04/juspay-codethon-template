@@ -1,4 +1,3 @@
-
 # Juspay Design Codethon – Setup Guide
 
 Welcome to the **Design Codethon**! This guide helps you build your project from scratch — with modern tools, fast UI libraries, and AI-powered assistance.
@@ -64,7 +63,7 @@ git config --global user.email "your-email@example.com"
 ### B. Generate a GitHub PAT
 
 1. Go to: [https://github.com/settings/tokens](https://github.com/settings/tokens)
-2. Click: **“Generate new token (classic)”**
+2. Click: **"Generate new token (classic)"**
 3. Set:
    - **Note**: `Codethon Access`
    - **Expiration**: 30 days
@@ -76,7 +75,7 @@ git config --global user.email "your-email@example.com"
 
 ### C. Clone Your Repo
 
-You’ll get your repo name (e.g., `codethon-yourname`) from the team. Run:
+You'll get your repo name (e.g., `codethon-yourname`) from the team. Run:
 
 ```bash
 git clone https://github.com/juspay-codethon/codethon-yourname.git
@@ -115,7 +114,7 @@ git push origin your-branch-name
 ## 2. Install Node.js via Kandji
 
 1. Open **Kandji Self Service**
-2. Search **“Node.js”**
+2. Search **"Node.js"**
 3. Click **Install**
 
 Verify:
@@ -126,69 +125,69 @@ npm -v
 
 ---
 
-## 3. Create Project with Vite
+## 3. Create Project with Next.js
 
-We’ll use [Vite](https://vitejs.dev/) for a fast frontend dev experience.
+We'll use [Next.js](https://nextjs.org/) for a powerful React framework with built-in optimizations.
 
-### A. Create New Vite App
+### A. Create New Next.js App
 
 ```bash
-npm create vite@latest
+npx create-next-app@latest
 ```
 
+When prompted, choose:
 - App Name: `my-app`
-- Framework: `React`
-- Variant: `TypeScript`
+- TypeScript: `Yes`
+- ESLint: `Yes`
+- Tailwind CSS: `Yes`
+- `src/` directory: `Yes`
+- App Router: `Yes`
+- Import alias: `Yes` (default `@/*`)
 
 Then:
 
 ```bash
 cd my-app
-npm install
+npm run dev
 ```
+
+Your Next.js app will be running at `http://localhost:3000`
 
 ---
 
-## 4. Setup Tailwind CSS (From Scratch)
+## 4. Tailwind CSS (Already Configured!)
 
-### A. Install Tailwind
+Since you selected Tailwind CSS during Next.js setup, it's already configured! But here's what was set up for you:
 
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
+### A. Tailwind Configuration
 
-### B. Configure Tailwind
+Your `tailwind.config.ts` should look like:
 
-Edit `tailwind.config.js`:
+```ts
+import type { Config } from "tailwindcss";
 
-```js
-export default {
+const config: Config = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
+export default config;
 ```
 
-### C. Add Tailwind to CSS
+### B. Global Styles
 
-In `src/index.css`, add:
+Your `src/app/globals.css` already includes:
 
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-```
-
-Then import this in `main.tsx`:
-
-```ts
-import './index.css';
 ```
 
 ---
@@ -198,27 +197,330 @@ import './index.css';
 ### A. Initialize shadcn/ui
 
 ```bash
-npx shadcn-ui@latest init
+npx shadcn@latest init
 ```
 
 Choose:
-- App directory: `src`
-- Tailwind config: `tailwind.config.js`
-- Alias: `@/components` (recommended)
+- App directory: `src/app`
+- Tailwind config: `tailwind.config.ts`
+- CSS file: `src/app/globals.css`
+- CSS variables: `Yes`
+- Alias: `@/components` (should match your Next.js setup)
 
 ### B. Add Components
 
 ```bash
-npx shadcn-ui@latest add button
-npx shadcn-ui@latest add card
-npx shadcn-ui@latest add dialog
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add dialog
 ```
 
 Explore all: https://ui.shadcn.dev/docs/components
 
 ---
 
-## 6. Setup Cline + Gemini for AI-Powered Coding
+## 6. Project Structure & Development Guide
+
+Now that your setup is complete, here's how to start building your codethon project:
+
+### A. Current Project Structure
+
+```
+your-project/
+├── app/
+│   ├── globals.css          # Global styles with Tailwind
+│   ├── layout.tsx           # Root layout (wraps all pages)
+│   ├── page.tsx             # Home page (/)
+│   └── favicon.ico          # Favicon
+├── components/
+│   └── ui/                  # shadcn/ui components (auto-generated)
+│       ├── button.tsx       # Button component
+│       ├── card.tsx         # Card component
+│       └── dialog.tsx       # Dialog/Modal component
+├── lib/
+│   └── utils.ts             # Utility functions for shadcn/ui
+├── public/                  # Static assets
+│   ├── next.svg
+│   └── vercel.svg
+├── components.json          # shadcn/ui configuration
+├── tailwind.config.ts       # Tailwind configuration
+├── next.config.ts          # Next.js configuration
+└── package.json            # Dependencies
+```
+
+### B. Creating New Pages
+
+Next.js uses **file-based routing**. Create new pages by adding files in the `app/` directory:
+
+#### Example: Create an About Page
+```tsx
+// app/about/page.tsx
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function About() {
+  return (
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-4xl mx-auto">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-3xl font-bold">About Our Project</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600 mb-6">
+              This is our amazing codethon project built with Next.js and shadcn/ui.
+            </p>
+            <Button>Learn More</Button>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
+```
+
+#### Example: Create a Dashboard
+```tsx
+// app/dashboard/page.tsx
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function Dashboard() {
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold mb-8">Dashboard</h1>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Total Users</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-3xl font-bold text-blue-600">1,234</p>
+            </CardContent>
+          </Card>
+          
+          <Card>
+            <CardHeader>
+              <CardTitle>Revenue</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-3xl font-bold text-green-600">$12,345</p>
+            </CardContent>
+          </Card>
+          
+          <Card>
+            <CardHeader>
+              <CardTitle>Orders</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-3xl font-bold text-purple-600">567</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+### C. Using shadcn/ui Components
+
+#### Available Components
+You have three components ready to use:
+- `Button` - For actions and navigation
+- `Card` - For content containers
+- `Dialog` - For modals and popups
+
+#### Import and Use Components
+```tsx
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+```
+
+#### Button Examples
+```tsx
+// Primary button
+<Button>Click me</Button>
+
+// Secondary button
+<Button variant="secondary">Secondary</Button>
+
+// Outline button
+<Button variant="outline">Outline</Button>
+
+// Different sizes
+<Button size="sm">Small</Button>
+<Button size="lg">Large</Button>
+
+// With custom styling
+<Button className="bg-blue-500 hover:bg-blue-600">Custom</Button>
+```
+
+#### Card Examples
+```tsx
+<Card className="max-w-md">
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card description goes here</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Your content here...</p>
+  </CardContent>
+</Card>
+```
+
+#### Dialog Examples
+```tsx
+<Dialog>
+  <DialogTrigger asChild>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>
+        Dialog description goes here.
+      </DialogDescription>
+    </DialogHeader>
+    <p>Dialog content...</p>
+  </DialogContent>
+</Dialog>
+```
+
+### D. Adding More shadcn/ui Components
+
+Need more components? Add them easily:
+
+```bash
+# Popular components for web apps
+npx shadcn@latest add input
+npx shadcn@latest add textarea
+npx shadcn@latest add form
+npx shadcn@latest add table
+npx shadcn@latest add dropdown-menu
+npx shadcn@latest add tabs
+npx shadcn@latest add toast
+npx shadcn@latest add avatar
+npx shadcn@latest add badge
+npx shadcn@latest add alert
+```
+
+### E. Styling with Tailwind CSS
+
+Use Tailwind utility classes for custom styling:
+
+```tsx
+// Layout
+<div className="flex flex-col md:flex-row gap-4">
+  <div className="w-full md:w-1/2">...</div>
+</div>
+
+// Colors
+<div className="bg-blue-500 text-white">...</div>
+<div className="bg-gradient-to-r from-purple-500 to-pink-500">...</div>
+
+// Spacing
+<div className="p-4 m-2 space-y-4">...</div>
+
+// Responsive design
+<div className="text-sm md:text-lg lg:text-xl">...</div>
+```
+
+### F. Development Workflow
+
+1. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+   Your app runs at `http://localhost:3000`
+
+2. **Edit `app/page.tsx`** to customize your home page
+
+3. **Create New Pages** by adding folders/files in `app/`
+
+4. **Add Components** as needed from shadcn/ui
+
+5. **Style with Tailwind** utility classes
+
+6. **Build and Deploy** when ready:
+   ```bash
+   npm run build
+   vercel
+   ```
+
+### G. Best Practices for Codethon
+
+- **Keep it Simple**: Focus on core functionality first
+- **Use shadcn/ui**: Leverage pre-built components to save time
+- **Mobile-First**: Design for mobile, then scale up
+- **Component Reuse**: Create reusable components in `/components/`
+- **Git Workflow**: Commit frequently with clear messages
+- **Performance**: Use Next.js Image component for images
+
+### H. Quick Start Template
+
+Replace your `app/page.tsx` with this template:
+
+```tsx
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+            My Codethon Project
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Built with Next.js, Tailwind CSS, and shadcn/ui
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <Card>
+            <CardHeader>
+              <CardTitle>Feature One</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 mb-4">Description of your first feature.</p>
+              <Button>Learn More</Button>
+            </CardContent>
+          </Card>
+          
+          <Card>
+            <CardHeader>
+              <CardTitle>Feature Two</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 mb-4">Description of your second feature.</p>
+              <Button variant="outline">Try It</Button>
+            </CardContent>
+          </Card>
+          
+          <Card>
+            <CardHeader>
+              <CardTitle>Feature Three</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 mb-4">Description of your third feature.</p>
+              <Button variant="secondary">Get Started</Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 7. Setup Cline + Gemini for AI-Powered Coding
 
 ### A. Install Cline Extension
 
@@ -244,15 +546,16 @@ Explore all: https://ui.shadcn.dev/docs/components
 
 ## Useful Dev Resources
 
+- [Next.js Documentation](https://nextjs.org/docs)
 - [shadcn/ui Components](https://ui.shadcn.dev/docs/components)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 - [Lucide Icons](https://lucide.dev)
-- [Vite Docs](https://vitejs.dev/guide/)
 - [Gemini AI Studio](https://aistudio.google.com/app)
 
 ---
 
 ## Deploying Your App on Vercel
+
 ### Deploy via Vercel CLI
 
 If you prefer deploying directly from the terminal:
@@ -272,8 +575,7 @@ vercel
 3. It will:
    - Ask to log in (use GitHub or email)
    - Ask for the root directory (`./`)
-   - Ask if it’s a React project → Yes
-   - Auto-detect Vite → Yes
+   - Auto-detect Next.js → Yes
    - Ask if you want to override settings → No (use defaults)
 
 4. After a few seconds, your project will be live! 🚀
@@ -283,21 +585,20 @@ To redeploy after making changes:
 vercel --prod
 ```
 
-
-Once you're done building your project, you can deploy it to the internet using **Vercel** (which works seamlessly with Vite, React, and Tailwind).
-
 ### Deploy via Vercel Dashboard
 
 1. Go to [https://vercel.com](https://vercel.com) and sign in with GitHub
-2. Click **“Add New → Project”**
+2. Click **"Add New → Project"**
 3. Import your repo from `juspay-codethon` org (e.g., `codethon-yourname`)
-4. Vercel will auto-detect it's a Vite + React app — click **Deploy**
+4. Vercel will auto-detect it's a Next.js app — click **Deploy**
 5. Done! 🎉 Your site is now live.
 
 ### What it sets up:
 - Automatic deployment from the `main` or `dev` branch
 - Custom preview URLs for every PR
-- Performance-optimized static hosting
+- Performance-optimized static and server-side rendering
+- Built-in API routes support
+- Image optimization and other Next.js features
 
 > Any future push to your repo will automatically trigger a new deployment
 
