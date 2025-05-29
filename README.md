@@ -12,12 +12,10 @@ Each participant will push their project to a **dedicated repo under**:
 - [1. GitHub Setup Using PAT (Personal Access Token)](#1-github-setup-using-pat-personal-access-token)
 - [1.1 Git Basics: Branch, Commit, Push](#11-git-basics-branch-commit-push)
 - [2. Install Node.js via Kandji](#2-install-nodejs-via-kandji)
-- [3. Create Project with Next.js](#3-create-project-with-nextjs)
-- [4. Tailwind CSS (Already Configured!)](#4-tailwind-css-already-configured)
-- [5. Setup shadcn/ui Components](#5-setup-shadcnui-components)
-- [6. Project Structure & Development Guide](#6-project-structure--development-guide)
+- [3. Getting Started with Your Pre-Configured Project](#3-getting-started-with-your-pre-configured-project)
+- [4. Project Structure & Development Guide](#4-project-structure--development-guide)
 - [Useful Dev Resources](#useful-dev-resources)
-- [7. Setup Cline + Gemini for AI-Powered Coding](#7-setup-cline--gemini-for-ai-powered-coding)
+- [5. Setup Cline + Gemini for AI-Powered Coding](#5-setup-cline--gemini-for-ai-powered-coding)
 - [Deploying Your App on Vercel](#deploying-your-app-on-vercel)
 - [Questions?](#questions)
 
@@ -135,98 +133,65 @@ npm -v
 ```
 
 
-## 3. Create Project with Next.js
+## 3. Getting Started with Your Pre-Configured Project
 
-We'll use [Next.js](https://nextjs.org/) for a powerful React framework with built-in optimizations.
+🎉 **Good news!** Your project is already set up with everything you need to start building:
 
-### A. Create New Next.js App
+### ✅ What's Already Configured
 
-```bash
-npx create-next-app@latest
-```
+- **Next.js 15** with App Router and TypeScript
+- **Tailwind CSS v4** for styling
+- **shadcn/ui components** (Button, Card, Dialog) ready to use
+- **Modern development setup** with ESLint and proper file structure
 
-When prompted, choose:
-- App Name: `my-app`
-- TypeScript: `Yes`
-- ESLint: `Yes`
-- Tailwind CSS: `Yes`
-- `src/` directory: `Yes`
-- App Router: `Yes`
-- Import alias: `Yes` (default `@/*`)
+### 🚀 Quick Start
 
-Then:
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-cd my-app
-npm run dev
-```
+2. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+   Your app will be running at `http://localhost:3000`
 
-Your Next.js app will be running at `http://localhost:3000`
+3. **Start Coding!** 
+   - Edit `app/page.tsx` to customize your home page
+   - Create new pages in the `app/` directory
+   - Use pre-installed shadcn/ui components
+   - Style with Tailwind CSS utility classes
 
-
-## 4. Tailwind CSS (Already Configured!)
-
-Since you selected Tailwind CSS during Next.js setup, it's already configured! But here's what was set up for you:
-
-### A. Tailwind Configuration
-
-Your `tailwind.config.ts` should look like:
-
-```ts
-import type { Config } from "tailwindcss";
-
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-export default config;
-```
-
-### B. Global Styles
-
-Your `src/app/globals.css` already includes:
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-
-## 5. Setup shadcn/ui Components
-
-### A. Initialize shadcn/ui
+### 📦 Available Scripts
 
 ```bash
-npx shadcn@latest init
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
 ```
 
-Choose:
-- App directory: `src/app`
-- Tailwind config: `tailwind.config.ts`
-- CSS file: `src/app/globals.css`
-- CSS variables: `Yes`
-- Alias: `@/components` (should match your Next.js setup)
+### 🎨 Ready-to-Use Components
 
-### B. Add Components
+You can immediately start using these components:
 
+```tsx
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+```
+
+**Need more components?** Add them easily:
 ```bash
-npx shadcn@latest add button
-npx shadcn@latest add card
-npx shadcn@latest add dialog
+npx shadcn@latest add input
+npx shadcn@latest add form
+npx shadcn@latest add table
+# See full list: https://ui.shadcn.dev/docs/components
 ```
 
-Explore all: https://ui.shadcn.dev/docs/components
 
-
-## 6. Project Structure & Development Guide
+## 4. Project Structure & Development Guide
 
 Now that your setup is complete, here's how to start building your codethon project:
 
@@ -535,7 +500,7 @@ export default function Home() {
 - [Gemini AI Studio](https://aistudio.google.com/app)
 
 
-## 7. Setup Cline + Gemini for AI-Powered Coding
+## 5. Setup Cline + Gemini for AI-Powered Coding
 
 ### A. Install Cline Extension
 
