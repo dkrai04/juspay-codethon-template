@@ -5,7 +5,7 @@ Welcome to the **Design Codethon**! This guide helps you build your project from
 Each participant will push their project to a **dedicated repo under**:  
 [`https://github.com/juspay-codethon`](https://github.com/juspay-codethon)
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Step 0: Enable Temporary Admin Access via Kandji](#step-0-enable-temporary-admin-access-via-kandji)
 - [Git Installation](#git-installation-macos)
