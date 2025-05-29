@@ -137,14 +137,14 @@ npm -v
 
 🎉 **Good news!** Your project is already set up with everything you need to start building:
 
-### ✅ What's Already Configured
+### What's Already Configured
 
 - **Next.js 15** with App Router and TypeScript
 - **Tailwind CSS v4** for styling
 - **shadcn/ui components** (Button, Card, Dialog) ready to use
 - **Modern development setup** with ESLint and proper file structure
 
-### 🚀 Quick Start
+### Quick Start
 
 1. **Install Dependencies**
    ```bash
@@ -163,7 +163,7 @@ npm -v
    - Use pre-installed shadcn/ui components
    - Style with Tailwind CSS utility classes
 
-### 📦 Available Scripts
+### Available Scripts
 
 ```bash
 npm run dev          # Start development server
@@ -172,7 +172,7 @@ npm run start        # Start production server
 npm run lint         # Run ESLint
 ```
 
-### 🎨 Ready-to-Use Components
+### Ready-to-Use Components
 
 You can immediately start using these components:
 
