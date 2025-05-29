@@ -5,6 +5,21 @@ Welcome to the **Design Codethon**! This guide helps you build your project from
 Each participant will push their project to a **dedicated repo under**:  
 [`https://github.com/juspay-codethon`](https://github.com/juspay-codethon)
 
+## 📋 Table of Contents
+
+- [Step 0: Enable Temporary Admin Access via Kandji](#step-0-enable-temporary-admin-access-via-kandji)
+- [Git Installation (macOS)](#git-installation-macos)
+- [1. GitHub Setup Using PAT (Personal Access Token)](#1-github-setup-using-pat-personal-access-token)
+- [1.1 Git Basics: Branch, Commit, Push](#11-git-basics-branch-commit-push)
+- [2. Install Node.js via Kandji](#2-install-nodejs-via-kandji)
+- [3. Create Project with Next.js](#3-create-project-with-nextjs)
+- [4. Tailwind CSS (Already Configured!)](#4-tailwind-css-already-configured)
+- [5. Setup shadcn/ui Components](#5-setup-shadcnui-components)
+- [6. Project Structure & Development Guide](#6-project-structure--development-guide)
+- [Useful Dev Resources](#useful-dev-resources)
+- [7. Setup Cline + Gemini for AI-Powered Coding](#7-setup-cline--gemini-for-ai-powered-coding)
+- [Deploying Your App on Vercel](#deploying-your-app-on-vercel)
+- [Questions?](#questions)
 
 ## Step 0: Enable Temporary Admin Access via Kandji
 
